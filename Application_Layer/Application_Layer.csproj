@@ -11,4 +11,9 @@
     <ProjectReference Include="..\Domain_Layer\Domain_Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Interfaces\" />
+    <Folder Include="Common\Models\" />
+  </ItemGroup>
+
 </Project>

@@ -11,4 +11,11 @@
     <ProjectReference Include="..\Application_Layer\Application_Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Models\Swagger\Request\Authentication\" />
+    <Folder Include="Common\Models\Swagger\Request\QuestionRequest\" />
+    <Folder Include="Common\Models\Swagger\Response\Authentication\" />
+    <Folder Include="Common\Models\Swagger\Response\QuestionResponse\" />
+  </ItemGroup>
+
 </Project>
