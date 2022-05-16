@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Infrastructure_Layer.Services
 {
-   public class SwaggerClient
+    public class SwaggerClient : ISwaggerClient
     {
+
+        private RestClient client;
+
+        public SwaggerClient()
+        {
+            this.client = new RestClient(EndPoint.endUrl);
+            
+        }
+        
+        public async Task AuthenticateByPasswordAsync(CancellationToken cancellationToken = default)
+        {
+            AuthenticationByPassword request = new AuthenticationByPassword();
+            RestResponse<AuthentictionResponseModel> response =await client.ExecuteAsync<AuthentictionResponseModel>(request, cancellationToken);
+
+        }
+
     }
 }

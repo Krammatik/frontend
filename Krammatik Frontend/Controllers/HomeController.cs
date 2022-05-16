@@ -1,4 +1,5 @@
-﻿using Krammatik_Frontend.Models;
+﻿using Application_Layer.Common.Interfaces;
+using Krammatik_Frontend.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,14 +8,18 @@ namespace Krammatik_Frontend.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ISwaggerClient _client;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,ISwaggerClient client)
         {
+            _client = client;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            await _client.AuthenticateByPasswordAsync();
+
             return View();
         }
 

@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Infrastructure_Layer.Services;
+using Microsoft.Extensions.DependencyInjection;
+using MediatR;
+using Infrastructure_Layer.Common.Models.Swagger.Response;
+using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure_Layer
 {
-   public class DependencyInjection
+   public static class DependencyInjection
     {
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services) {
+
+            services.AddScoped<ISwaggerClient, SwaggerClient>();
+            services.AddTransient<RestClient>();
+            return services;
+
+        }
+
+ 
     }
 }
