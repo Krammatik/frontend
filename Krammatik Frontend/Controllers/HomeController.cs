@@ -8,9 +8,9 @@ namespace Krammatik_Frontend.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ISwaggerClient _client;
+        private readonly IGrammatikService _client;
 
-        public HomeController(ILogger<HomeController> logger,ISwaggerClient client)
+        public HomeController(ILogger<HomeController> logger,IGrammatikService client)
         {
             _client = client;
             _logger = logger;

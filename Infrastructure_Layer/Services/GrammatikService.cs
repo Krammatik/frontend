@@ -1,12 +1,12 @@
 ﻿
 namespace Infrastructure_Layer.Services
 {
-    public class SwaggerClient : ISwaggerClient
+    public class GrammatikService : IGrammatikService
     {
 
         private RestClient client;
 
-        public SwaggerClient()
+        public GrammatikService()
         {
             this.client = new RestClient(EndPoint.endUrl);
             

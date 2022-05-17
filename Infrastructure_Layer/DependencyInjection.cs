@@ -11,7 +11,7 @@ namespace Infrastructure_Layer
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services) {
 
-            services.AddScoped<ISwaggerClient, SwaggerClient>();
+            services.AddScoped<IGrammatikService, GrammatikService>();
             services.AddTransient<RestClient>();
             return services;
 
