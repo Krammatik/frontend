@@ -11,11 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Models\Swagger\Request\QuestionRequest\" />
-    <Folder Include="Common\Models\Swagger\Response\QuestionResponse\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.2.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="RestSharp" Version="107.3.0" />

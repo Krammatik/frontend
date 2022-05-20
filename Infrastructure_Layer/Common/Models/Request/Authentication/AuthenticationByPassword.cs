@@ -1,19 +1,10 @@
-﻿using Infrastructure_Layer.Common.Models.EndPoints;
-using System;
-using System.Collections.Generic;
-
-
-namespace Infrastructure_Layer.Common.Models.Swagger.Request.Authentication
+﻿namespace Infrastructure_Layer.Common.Models.Request.Authentication
 {
     public class AuthenticationByPassword : BaseLoginRequest
     {
-        public AuthenticationByPassword() : base(EndPoint.loginUrl, Method.Post)
+        public AuthenticationByPassword(string username, string password) : base(EndPoint.LoginUrl, Method.Post)
         {
-            //// assignig Credtionals Body to Request
-
-            AuthenticationPasswordModel model = new AuthenticationPasswordModel("max.musterman", "MusterPassword123");
-            this.AddJsonBody(model);
-
+            this.AddJsonBody(new AuthenticationPasswordModel(username, password));
         }
 
         private class AuthenticationPasswordModel

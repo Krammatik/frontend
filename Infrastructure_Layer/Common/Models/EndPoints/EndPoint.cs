@@ -1,10 +1,8 @@
-﻿
-
-namespace Infrastructure_Layer.Common.Models.EndPoints
+﻿namespace Infrastructure_Layer.Common.Models.EndPoints
 {
-   public class EndPoint
+    public class EndPoint
     {
-        public const string  loginUrl = "https://krammatik.deathsgun.xyz/auth/login";
-        public const string endUrl = "https://krammatik.deathsgun.xyz";
+        public const string BaseUrl = "https://krammatik.deathsgun.xyz";
+        public const string LoginUrl = "/auth/login";
     }
 }
