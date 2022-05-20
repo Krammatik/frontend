@@ -1,7 +1,14 @@
+using Application_Layer.Common.Interfaces;
+using Infrastructure_Layer;
+using Infrastructure_Layer.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// see DependencyInjection in Infrastructure_Layer
+builder.Services.AddInfrastructure();
 
 var app = builder.Build();
 

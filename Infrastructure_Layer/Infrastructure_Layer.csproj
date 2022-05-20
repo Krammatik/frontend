@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -12,10 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Models\Swagger\Request\Authentication\" />
-    <Folder Include="Common\Models\Swagger\Request\QuestionRequest\" />
-    <Folder Include="Common\Models\Swagger\Response\Authentication\" />
-    <Folder Include="Common\Models\Swagger\Response\QuestionResponse\" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="RestSharp" Version="107.3.0" />
   </ItemGroup>
 
 </Project>

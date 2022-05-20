@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Infrastructure_Layer.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure_Layer
 {
-   public class DependencyInjection
+   public static class DependencyInjection
     {
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services) {
+
+            services.AddScoped<IKrammatikService, KrammatikService>();
+            services.AddTransient<RestClient>();
+            return services;
+
+        }
+
+ 
     }
 }
