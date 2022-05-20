@@ -19,9 +19,4 @@
     <ProjectReference Include="..\Domain_Layer\Domain_Layer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\Models\Response\" />
-    <Folder Include="Common\Models\Swagger\" />
-  </ItemGroup>
-
 </Project>
