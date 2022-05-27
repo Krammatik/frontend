@@ -35,12 +35,19 @@ namespace Krammatik_Frontend.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
         {
             var tokenCookie = Request.Cookies["token"];
-            if (tokenCookie != null)
+            if (tokenCookie == null)
             {
-                Console.WriteLine(tokenCookie);
+                return View();
+            }
+            
+            Console.WriteLine(tokenCookie);
+            var tasks = await _client.GetTasks(tokenCookie);
+            foreach (var task in tasks)
+            {
+                Console.WriteLine(task.Title);
             }
             return View();
         }

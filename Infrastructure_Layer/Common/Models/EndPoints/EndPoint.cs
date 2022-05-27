@@ -4,5 +4,6 @@
     {
         public const string BaseUrl = "https://krammatik.deathsgun.xyz";
         public const string LoginUrl = "/auth/login";
+        public const string Tasks = "/task";
     }
 }
