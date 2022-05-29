@@ -1,0 +1,17 @@
+﻿@model Krammatik_Frontend.Models.SignInModel
+
+@{
+    ViewBag.Title = "Login";
+}  
+<div>
+ @using (Html.BeginForm("UserAuthentication", "Accountt", FormMethod.Post))
+{
+   
+<div>@Html.LabelFor(model=>model.Username)
+     @Html.TextBoxFor(model=>model.Username)
+</div>
+<div>@Html.LabelFor(model=>model.Password)
+     @Html.TextBoxFor(model=>model.Password)
+</div>
+<button type="submit"> Login</button> 
+}</div>
