@@ -1,8 +1,15 @@
-﻿namespace Infrastructure_Layer.Common.Models.Request.Authentication
+﻿using Infrastructure_Layer.Common.Models.Request.Authentication;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Infrastructure_Layer.Common.Models.Request.Register
 {
-    public class AuthenticationByPassword : BaseRequest
+    public class SignupRequest:BaseRequest
     {
-        public AuthenticationByPassword(string username, string password) : base(EndPoint.LoginUrl, Method.Post)
+        public SignupRequest(string username, string password) : base(EndPoint.RegisterUrl, Method.Post)
         {
             this.AddJsonBody(new AuthenticationPasswordModel(username, password));
         }

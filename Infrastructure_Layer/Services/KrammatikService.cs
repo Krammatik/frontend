@@ -1,6 +1,7 @@
 ﻿using System.Security.Authentication;
 using Application_Layer.Common.Models;
 using Infrastructure_Layer.Common.Models.Request.Authentication;
+using Infrastructure_Layer.Common.Models.Request.Register;
 using Infrastructure_Layer.Common.Models.Request.Task;
 using Infrastructure_Layer.Common.Models.Response.Authentication;
 using Infrastructure_Layer.Common.Models.Response.Task;
@@ -53,6 +54,15 @@ namespace Infrastructure_Layer.Services
                 GeneralDescription = task.Description.ToAppMediaElement()
             }));
             return tasks;
+        }
+        public async Task<string> SignupAsync(string username, string password,
+         CancellationToken cancellationToken = default)
+        {
+            var request = new SignupRequest(username, password);
+            var response = await client.ExecuteAsync<AuthenticationResponseModel>(request, cancellationToken);
+
+            throw new AuthenticationException(
+                response.Data?.Message ?? $"received invalid status {response.StatusCode}");
         }
     }
 }

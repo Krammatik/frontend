@@ -1,10 +1,11 @@
-﻿@model Krammatik_Frontend.Models.SignInModel
+﻿@model Krammatik_Frontend.Models.SignupModel
+
 
 @{
     ViewBag.Title = "Login";
 }  
 <div>
- @using (Html.BeginForm("UserAuthentication", "Accountt", FormMethod.Post))
+ @using (Html.BeginForm("SignupMethod", "Signup", FormMethod.Post))
 {
    
 <div>@Html.LabelFor(model=>model.Username)
@@ -13,5 +14,5 @@
 <div>@Html.LabelFor(model=>model.Password)
      @Html.TextBoxFor(model=>model.Password)
 </div>
-<button type="submit"> Login</button> 
+<button type="submit"> Signup</button> 
 }</div>

@@ -8,11 +8,11 @@ using RestSharp;
 
 namespace Krammatik_Frontend.Controllers
 {
-    public class AccounttController : Controller
+    public class LoginController : Controller
     {
 
         public IKrammatikService Client { get; set; }
-        public AccounttController(IKrammatikService client)
+        public LoginController(IKrammatikService client)
 
         {
             Client = client;
@@ -25,13 +25,22 @@ namespace Krammatik_Frontend.Controllers
         }
 
         [HttpPost]
-        public IActionResult UserAuthentication(SignInModel modell)
+        public async Task<IActionResult> UserAuthentication(SignInModel modell)
         {
+          try
+            {
+                 string  token = await Client.AuthenticateByPasswordAsync(modell.Username, modell.Password);
+
+                Response.Cookies.Append("token", token, new CookieOptions
+                {
+                    Expires = DateTimeOffset.Now.AddHours(8) // Expire after 8 hours
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
             //ToDo:
-            // if(signin)
-            // make request to Backend and do authentication test 
-            // if (register)
-            // creating a new user account 
             // Design ^^
             return RedirectToAction("index", "Home");
         }
