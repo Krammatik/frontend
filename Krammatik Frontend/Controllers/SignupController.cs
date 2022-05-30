@@ -16,6 +16,7 @@ namespace Krammatik_Frontend.Controllers
 
         public IActionResult Signup()
         {
+
             return View();
         }
 
@@ -24,14 +25,12 @@ namespace Krammatik_Frontend.Controllers
         {
             try
             {
-                string token = await Client.SignupAsync(modell.Username, modell.Password);
+                string test = await Client.SignupAsync(modell.Username, modell.Password);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-            //ToDo:
-            // Design ^^
             return RedirectToAction("index", "Home");
         }
 

@@ -28,20 +28,14 @@ namespace Krammatik_Frontend.Controllers
         public async Task<IActionResult> UserAuthentication(SignInModel modell)
         {
           try
-            {
-                 string  token = await Client.AuthenticateByPasswordAsync(modell.Username, modell.Password);
-
-                Response.Cookies.Append("token", token, new CookieOptions
-                {
-                    Expires = DateTimeOffset.Now.AddHours(8) // Expire after 8 hours
-                });
+            { 
+                 string  test = await Client.AuthenticateByPasswordAsync(modell.Username, modell.Password);
             }
+
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-            //ToDo:
-            // Design ^^
             return RedirectToAction("index", "Home");
         }
 

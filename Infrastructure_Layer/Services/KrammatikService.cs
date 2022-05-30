@@ -3,8 +3,10 @@ using Application_Layer.Common.Models;
 using Infrastructure_Layer.Common.Models.Request.Authentication;
 using Infrastructure_Layer.Common.Models.Request.Register;
 using Infrastructure_Layer.Common.Models.Request.Task;
+using Infrastructure_Layer.Common.Models.Request.User;
 using Infrastructure_Layer.Common.Models.Response.Authentication;
 using Infrastructure_Layer.Common.Models.Response.Task;
+using Infrastructure_Layer.Common.Models.Response.User;
 
 namespace Infrastructure_Layer.Services
 {
@@ -27,7 +29,7 @@ namespace Infrastructure_Layer.Services
                 return response.Data?.Token ?? throw new AuthenticationException("no token provided");
             }
 
-            throw new AuthenticationException(
+                throw new AuthenticationException(
                 response.Data?.Message ?? $"received invalid status {response.StatusCode}");
         }
 
@@ -55,14 +57,28 @@ namespace Infrastructure_Layer.Services
             }));
             return tasks;
         }
+
         public async Task<string> SignupAsync(string username, string password,
          CancellationToken cancellationToken = default)
         {
             var request = new SignupRequest(username, password);
             var response = await client.ExecuteAsync<AuthenticationResponseModel>(request, cancellationToken);
 
-            throw new AuthenticationException(
-                response.Data?.Message ?? $"received invalid status {response.StatusCode}");
+            return response.StatusCode.ToString();
+        }
+
+        public async Task<List<User>> GetAllUser(string token,CancellationToken cancellation= default)
+        {
+            var request = new UserRequest(token);
+            var response = await client.ExecuteAsync<UserResponseModel>(request, cancellation);
+
+            List<User> users = new List<User>();
+            
+            if (!response.IsSuccessful || response.Data == null)
+            {
+                return users;
+            }
+            return users;
         }
     }
 }
