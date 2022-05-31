@@ -26,6 +26,7 @@ namespace Krammatik_Frontend.Controllers
             try
             {
                 string test = await Client.SignupAsync(modell.Username, modell.Password);
+                Console.WriteLine(test);
             }
             catch (Exception e)
             {

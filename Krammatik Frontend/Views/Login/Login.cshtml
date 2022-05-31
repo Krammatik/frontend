@@ -4,25 +4,31 @@
     ViewBag.Title = "Login";
 }  
 
+<body class="background">
+          
+ @using (Html.BeginForm("SignupMethod", "Signup", FormMethod.Post))
+{
 
- <div class="form-group">
+<form action="action_page.php" method="post">
+    <p style="background-image: url('Background.jpg');">
+    <div class="imgcontainer">
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" alt="Avatar" class="avatar">
+  </div>
 
- @using (Html.BeginForm("UserAuthentication", "Login", FormMethod.Post))
-{ 
-
-<div >
-     @Html.LabelFor(model=>model.Username,new{@class="form-label"})
-     @Html.TextBoxFor(model=>model.Username,new{@class="form-control",type="email"})
-
-</div>
-
-<div >
-     @Html.LabelFor(model=>model.Password,new{@class="form-label"})
-     @Html.TextBoxFor(model=>model.Password,new{@class="form-control",type="password"} )
-</div>
-
-
-  <button class="btn btn-primary" type="submit"> Login </button>
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+      @Html.TextBoxFor(model=>model.Username,new{type="text"  ,placeholder="Enter Username"})
+    <label for="psw"><b>Password</b></label>
+     @Html.TextBoxFor(model=>model.Password,new{type="password", placeholder= "Enter Password"})   
+    <button  type="submit" class="btn btn-primary" >Login </button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+  <div>
+    <a type="button" href="/Home" class="cancelbtn" style:" margin-right:18px"> Cancel </a>
+    <span class="psw">Forgot <a href="/Login/Login">password?</a></span>
+  </div>
+</form>
 }
-</div>
-
+</body>
