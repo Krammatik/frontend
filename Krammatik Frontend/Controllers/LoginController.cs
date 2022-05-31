@@ -27,16 +27,27 @@ namespace Krammatik_Frontend.Controllers
         [HttpPost]
         public async Task<IActionResult> UserAuthentication(SignInModel modell)
         {
-          try
+            
+            try
             { 
-                 string  test = await Client.AuthenticateByPasswordAsync(modell.Username, modell.Password);
-            }
+                //TODO: Get actual user information
+               string  token = await Client.AuthenticateByPasswordAsync(modell.Username, modell.Password);
 
+                // Set cookie for further use in later requests
+                Response.Cookies.Append("token", token, new CookieOptions
+                {
+                    Expires = DateTimeOffset.Now.AddHours(8) // Expire after 8 hours
+                });
+
+                
+            }
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                return View("Login");
             }
-            return RedirectToAction("index", "Home");
+            
+                return RedirectToAction("index", "Home");
         }
 
     }

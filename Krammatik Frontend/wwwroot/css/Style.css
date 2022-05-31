@@ -14,7 +14,7 @@ input[type=text], input[type=password],input[type=email] {
 }
 
 .background {
-    background: url('Spy-X-Family.png');
+    background: url('Images/b.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
