@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Infrastructure_Layer.Common.Models.Request.Authentication;
 
 namespace Infrastructure_Layer.Common.Models.Request.User
 {
-   public class UserRequest: RestRequest
+   public class UserRequest: AuthenticatedRequest
     {
-        public UserRequest(string token): base(EndPoint.UserUrl,Method.Get)
+        public UserRequest(string token) : base(EndPoint.UserUrl, Method.Get, token)
         {
             this.AddHeader("Accept", "application/json");
             this.AddHeader("Content-Type", "application/json");
