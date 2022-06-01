@@ -22,6 +22,8 @@ namespace Krammatik_Frontend.Controllers
             {
                 //TODO: Get actual user information
                 var token =  await _client.AuthenticateByPasswordAsync("max.musterman", "MusterPassword123");
+
+
                 // Set cookie for further use in later requests
                 Response.Cookies.Append("token", token, new CookieOptions
                 {

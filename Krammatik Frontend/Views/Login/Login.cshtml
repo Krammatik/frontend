@@ -1,0 +1,34 @@
+﻿@model Krammatik_Frontend.Models.SignInModel
+
+@{
+    ViewBag.Title = "Login";
+}  
+
+<body class="background">
+          
+ @using (Html.BeginForm("UserAuthentication", "Login", FormMethod.Post))
+{
+
+<form action="action_page.php" method="post">
+    <p style="background-image: url('Background.jpg');">
+    <div class="imgcontainer">
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+      @Html.TextBoxFor(model=>model.Username,new{type="text"  ,placeholder="Enter Username"})
+    <label for="psw"><b>Password</b></label>
+     @Html.TextBoxFor(model=>model.Password,new{type="password", placeholder= "Enter Password"})   
+    <button  type="submit" class="btn btn-primary" >Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+  <div>
+    <a type="button" href="/Home" class="cancelbtn" style:" margin-right:18px"> Cancel </a>
+    <span class="psw">Forgot <a href="/Login/Login">password?</a></span>
+  </div>
+</form>
+}
+</body>

@@ -1,6 +1,6 @@
 ﻿namespace Infrastructure_Layer.Common.Models.Request.Authentication
 {
-    public class AuthenticationByPassword : BaseLoginRequest
+    public class AuthenticationByPassword : BaseRequest
     {
         public AuthenticationByPassword(string username, string password) : base(EndPoint.LoginUrl, Method.Post)
         {
