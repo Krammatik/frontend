@@ -8,7 +8,7 @@ namespace Application_Layer.Common.Models
 {
    public class User
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string UserName { get; set; }
         public string[] Groups { get; set; }
     }
